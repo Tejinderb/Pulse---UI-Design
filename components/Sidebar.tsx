@@ -38,104 +38,48 @@ export function Sidebar({
   const [isCollapsed, setIsCollapsed] = useState(false);
 
   const toggleSidebar = () => setIsCollapsed(prev => !prev);
+
+  // ✅ Reset collapsed state saat masuk ukuran mobile
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 1024) {
-        setIsCollapsed(false);
+        setIsCollapsed(false); // Always expanded in mobile
       }
     };
 
-    handleResize();
+    handleResize(); // Run once on mount
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
   return (
-    <div className={`
-      ${isCollapsed ? 'sidebar-collapsed' : 'sidebar-expanded'} 
-      sidebar-transition glass-effect flex flex-col relative z-20
-    `}>
-      {/* Header with Logo and Toggle */}
-      <div className="p-4 border-b border-gray-800/50">
-        {!isCollapsed ? (
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3 overflow-hidden">
-              <div className="flex-shrink-0"> <img src="/logo.png" alt="Pulse Logo" width={32} height={32} className="rounded-lg" />
-              </div>
-              <span className="text-xl font-bold text-white sidebar-logo-text sidebar-logo-text-visible">
-                Pulse
-              </span>
+    <>
+      {/* Sidebar container */}
+      <div className={`
+        fixed lg:sticky top-0 left-0 z-40 w-64 bg-black/80 border-r border-gray-800/50 
+        h-screen lg:min-h-screen lg:h-auto flex flex-col transform transition-transform duration-300 ease-in-out
+        ${isCollapsed ? 'sidebar-collapsed' : 'sidebar-expanded'} 
+        ${isMobileOpen ? 'translate-x-0' : '-translate-x-full'} 
+        lg:translate-x-0
+      `}>
+        {/* Header */}
+        <div className="p-3 border-b border-gray-800/50 flex items-center justify-center">
+          <div className='flex w-full justify-between'>
+            <div className="flex items-center">
+              <img src="/logo.png" alt="Pulse Logo" width={40} height={40} className="rounded-lg" />
+              {!isCollapsed && <span className="text-xl font-bold text-white sidebar-logo-text sidebar-logo-text-visible">Pulse</span>}
             </div>
 
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={toggleSidebar}
-              className="apple-button text-gray-400 hover:text-white hover:bg-gray-800/50 flex-shrink-0"
-            >
-              <X size={18} />
-            </Button>
-          </div>
-        ) : (
-          <div className="flex justify-center">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={toggleSidebar}
-              className="apple-button text-gray-400 hover:text-white hover:bg-gray-800/50"
-            >
-              <Menu size={18} />
-            </Button>
-          </div>
-        )}
-      </div>
-
-      {/* Navigation */}
-      <nav className="flex-1 p-3">
-        <ul className="space-y-2">
-          {navigation.map((item) => {
-            const Icon = item.icon;
-            const isActive = activeTab === item.id;
-
-            return (
-              <li key={item.id}>
-                <button
-                  onClick={() => setActiveTab(item.id)}
-                  className={`
-                    w-full flex items-center space-x-3 px-2 py-2.5 rounded-lg 
-                    apple-button transition-all duration-200 group relative overflow-hidden
-                    ${isActive
-                      ? 'bg-gray-800/60 text-white border border-gray-700/50 shadow-lg'
-                      : 'text-gray-400 hover:text-white hover:bg-gray-800/40'
-                    }
-                  `}
-                  title={isCollapsed ? item.label : undefined}
-                >
-                  <Icon size={20} className="flex-shrink-0" />
-                  <span className={`
-                    font-medium sidebar-label whitespace-nowrap
-                    ${isCollapsed ? 'sidebar-label-hidden' : 'sidebar-label-visible'}
-                  `}>
-                    {item.label}
-                  </span>
-
-                  {/* Active indicator */}
-                </button>
-              </li>
-            );
-          })}
-        </ul>
-      </nav>
-
-      {/* Footer */}
-      <div className="p-4 border-t border-gray-800/50">
-        <div className={`
-          text-xs text-gray-500 text-center sidebar-label
-          ${isCollapsed ? 'sidebar-label-hidden' : 'sidebar-label-visible'}
-        `}>
-          <div className="mb-1">Pulse v2.0</div>
-          <div className="flex items-center justify-center space-x-1">
-            <div className="w-2 h-2 bg-green-400 rounded-full pulse-animation"></div>
-            <span>Live</span>
+            <div className='hidden lg:flex lg:items-center space-x-3'>
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={toggleSidebar}
+                className="text-gray-400 hover:text-white hover:bg-gray-800/50"
+              >
+                {isCollapsed ? <Menu size={16} /> : <X size={16} />}
+              </Button>
+            </div>
           </div>
         </div>
 
@@ -181,13 +125,13 @@ export function Sidebar({
         </div>
       </div>
 
-      {/* <= 1024px responsive overlay  */}
+      {/* Overlay for mobile */}
       {isMobileOpen && (
         <div
           className="fixed inset-0 bg-black bg-opacity-50 z-30 lg:hidden"
           onClick={onMobileClose}
         />
       )}
-    </div>
-  )
+    </>
+  );
 }
