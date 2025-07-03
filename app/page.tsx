@@ -8,6 +8,7 @@ import { AssetRadar } from '@/components/widgets/AssetRadar';
 import { NewsPulse } from '@/components/widgets/NewsPulse';
 import { SmartAlerts } from '@/components/widgets/SmartAlerts';
 import { MarketViewAI } from '@/components/widgets/MarketViewAI';
+import { TopMovers } from '@/components/widgets/TopMovers';
 
 function useScrollReveal() {
   useEffect(() => {
@@ -73,6 +74,7 @@ export default function HomePage() {
       <AnimatedBackground />
 
       <div className="flex relative z-10">
+<<<<<<< HEAD
         {/* Sidebar */}
         <Sidebar
           activeTab={activeTab}
@@ -92,12 +94,29 @@ export default function HomePage() {
               {/* Header */}
               <section className="mb-6 scroll-reveal">
                 <h1 className="text-2xl lg:text-3xl font-bold text-white mb-2">
+=======
+        <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} />
+        
+        <div className="flex-1 flex flex-col h-full">
+          <TopBar />
+          
+          <main className="flex-1 p-4 lg:p-6 overflow-hidden">
+            <div className="max-w-7xl mx-auto">
+              <div className="mb-0 overflow-hidden">
+                <TopMovers/>
+                {/* <h1 className="text-2xl lg:text-3xl font-bold text-white mb-2">
+>>>>>>> origin/main
                   Market Intelligence Dashboard
                 </h1>
                 <p className="text-gray-400">
                   Real-time insights powered by AI for smarter trading decisions
+<<<<<<< HEAD
                 </p>
               </section>
+=======
+                </p> */}
+              </div>
+>>>>>>> origin/main
 
               {/* Grid Content */}
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
