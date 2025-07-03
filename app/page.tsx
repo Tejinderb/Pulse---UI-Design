@@ -70,7 +70,7 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-black relative">
-      <AnimatedBackground />
+      {/* <AnimatedBackground /> */}
 
       <div className="flex relative z-10">
         {/* Sidebar */}
@@ -87,8 +87,8 @@ export default function HomePage() {
             onToggleMobileSidebar={() => setIsSidebarMobileOpen(!isSidebarMobileOpen)}
           />
 
-          <main className="flex-1 p-4 lg:p-6 overflow-auto">
-            <div className="max-w-7xl mx-auto">
+          <main className="flex-1 pt-16 lg:pt-0 w-full p-4 lg:p-6 overflow-auto">
+            <div className="max-w-full mx-auto">
               {/* Header */}
               <section className="mb-6 scroll-reveal">
                 <h1 className="text-2xl lg:text-3xl font-bold text-white mb-2">

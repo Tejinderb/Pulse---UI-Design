@@ -63,8 +63,9 @@ export function Sidebar({
         <div className="p-3 border-b border-gray-800/50 flex items-center justify-center">
           <div className='flex w-full justify-between'>
             <div className="flex items-center">
-              <img src="/logo.png" alt="Pulse Logo" width={40} height={40} className="rounded-lg" />
-              {!isCollapsed && <span className="text-xl font-bold text-white sidebar-logo-text sidebar-logo-text-visible">Pulse</span>}
+              {!isCollapsed && <span className="text-xxl font-bold text-white sidebar-logo-text sidebar-logo-text-visible">
+                <img src="/logo.png" alt="Pulse Logo" width={40} height={40} className="rounded-lg" />
+              </span>}
             </div>
 
             <div className='hidden lg:flex lg:items-center space-x-3'>
@@ -109,8 +110,8 @@ export function Sidebar({
         </nav>
 
         {/* Footer */}
-        <div className="p-4 border-t border-gray-800/50 text-center text-xs text-gray-500">
-          {!isCollapsed && (
+        <div className="p-4 border-t border-gray-800/50 text-center text-xs text-gray-500 shrink-0">
+          {!isCollapsed ? (
             <>
               <div>Pulse v2.0</div>
               <div className="flex justify-center items-center space-x-1 mt-1">
@@ -118,6 +119,10 @@ export function Sidebar({
                 <span>Live</span>
               </div>
             </>
+          ) : (
+            <div className="flex justify-center items-center">
+              <div className="w-2 h-2 bg-green-400 rounded-full pulse-animation" title="Live" />
+            </div>
           )}
         </div>
       </div>

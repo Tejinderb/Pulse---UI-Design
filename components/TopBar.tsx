@@ -13,9 +13,15 @@ interface TopBarProps {
 
 export function TopBar({ onToggleMobileSidebar, isDark = false, onToggleTheme }: TopBarProps) {
   return (
-    <header className="h-16 glass-effect border-b border-gray-800/50 flex items-center justify-between px-4 lg:px-6 relative z-30">
+    <header className="fixed lg:static top-0 left-0 right-0 
+      h-16 w-full 
+      bg-black/80 backdrop-blur-md 
+      border-b border-gray-800/50 
+      flex items-center justify-between 
+      px-4 lg:px-6 
+      z-30">
       {/* Sidebar toggle */}
-      <div className="flex items-center space-x-4 flex-1">
+      <div className="flex items-center space-x-3 lg:space-x-0 flex-1">
         <Button
           variant="ghost"
           size="icon"
@@ -25,7 +31,7 @@ export function TopBar({ onToggleMobileSidebar, isDark = false, onToggleTheme }:
           <Menu size={20} />
         </Button>
 
-        <div className="relative w-full max-w-md hidden sm:block">
+        <div className="relative w-full max-w-full lg:max-w-md hidden sm:block">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
           <Input
             placeholder="Search assets, influencers, news..."
