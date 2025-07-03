@@ -70,7 +70,7 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-black relative">
-      {/* <AnimatedBackground /> */}
+      <AnimatedBackground />
 
       <div className="flex relative z-10">
         {/* Sidebar */}
