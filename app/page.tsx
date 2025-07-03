@@ -74,27 +74,6 @@ export default function HomePage() {
       <AnimatedBackground />
 
       <div className="flex relative z-10">
-<<<<<<< HEAD
-        {/* Sidebar */}
-        <Sidebar
-          activeTab={activeTab}
-          setActiveTab={handleTabChange}
-          isMobileOpen={isSidebarMobileOpen}
-          onMobileClose={() => setIsSidebarMobileOpen(false)}
-        />
-
-        {/* Main Content */}
-        <div className="flex-1 flex flex-col min-h-screen">
-          <TopBar
-            onToggleMobileSidebar={() => setIsSidebarMobileOpen(!isSidebarMobileOpen)}
-          />
-
-          <main className="flex-1 pt-16 lg:pt-0 w-full p-4 lg:p-6 overflow-auto">
-            <div className="max-w-full mx-auto">
-              {/* Header */}
-              <section className="mb-6 scroll-reveal">
-                <h1 className="text-2xl lg:text-3xl font-bold text-white mb-2">
-=======
         <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} />
         
         <div className="flex-1 flex flex-col h-full">
@@ -105,18 +84,12 @@ export default function HomePage() {
               <div className="mb-0 overflow-hidden">
                 <TopMovers/>
                 {/* <h1 className="text-2xl lg:text-3xl font-bold text-white mb-2">
->>>>>>> origin/main
                   Market Intelligence Dashboard
                 </h1>
                 <p className="text-gray-400">
                   Real-time insights powered by AI for smarter trading decisions
-<<<<<<< HEAD
-                </p>
-              </section>
-=======
                 </p> */}
               </div>
->>>>>>> origin/main
 
               {/* Grid Content */}
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
