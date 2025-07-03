@@ -36,18 +36,15 @@ export function Sidebar({
   onMobileClose,
 }: SidebarProps) {
   const [isCollapsed, setIsCollapsed] = useState(false);
-
   const toggleSidebar = () => setIsCollapsed(prev => !prev);
-
-  // ✅ Reset collapsed state saat masuk ukuran mobile
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 1024) {
-        setIsCollapsed(false); // Always expanded in mobile
+        setIsCollapsed(false);
       }
     };
 
-    handleResize(); // Run once on mount
+    handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
