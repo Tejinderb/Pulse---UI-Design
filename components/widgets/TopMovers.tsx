@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { TrendingUp, TrendingDown } from 'lucide-react';
 
 const topMovers = [
@@ -37,10 +38,10 @@ const topMovers = [
     id: 4,
     symbol: 'BTC',
     name: 'Bitcoin',
-    price: '$109,959',       
-    change: '+2.168%',        
+    price: '$109,959',
+    change: '+2.168%',
     isPositive: true,
-    icon: '🪙',             
+    icon: '🪙',
     sparkline: [109000, 109200, 109100, 109800, 109500, 109800, 109959],
   },
   {
@@ -90,6 +91,17 @@ function MiniSparkline({ data }: { data: number[] }) {
 }
 
 export function TopMovers() {
+  const [scrollDirection, setScrollDirection] = useState<'left' | 'right'>('left');
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setScrollDirection((prev) => (prev === 'left' ? 'right' : 'left'));
+    }, 30000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const extendedTopMovers = [...topMovers, ...topMovers];
   return (
     <div className="mb-3">
       <div className="flex items-center space-x-2 mb-3">
@@ -98,33 +110,38 @@ export function TopMovers() {
         {/* <div className="w-1.5 h-1.5 bg-green-400 rounded-full pulse-animation"></div> */}
       </div>
 
-      <div className="overflow-auto">
-        <div className="flex space-x-3 animate-scroll">
-          {topMovers.map((mover, index) => (
+      <div className="overflow-hidden">
+        <div
+          className={`flex w-max space-x-3 ${scrollDirection === 'left' ? 'animate-scroll-left' : 'animate-scroll-right'
+            }`}
+        >
+          {extendedTopMovers.map((mover, index) => (
             <div
               key={`${mover.id}-${index}`}
               className="flex-shrink-0 w-15 p-3 h-15 glass-effect rounded-xl hover:bg-gray-900/60 transition-all cursor-pointer apple-button border border-gray-800/30"
             >
               <div className="flex justify-between mb-1">
-                <div className="flex items-center space-x-3 ">
+                <div className="flex items-center space-x-3">
                   <span className="text-small">{mover.icon}</span>
                   <div>
-                    <h3 className="font-semibold text-white text-sm flex items-center">{mover.symbol}
-                    <div className={`text-xs flex px-2 items-center space-x-1 ${
-                        mover.isPositive ? 'text-green-400' : 'text-red-400'
-                        }`}>
-                            {mover.isPositive ? (
-                            <TrendingUp className="w-3 h-3" />
-                            ) : (
-                            <TrendingDown className="w-3 h-3" />
-                            )}
+                    <h3 className="font-semibold text-white text-sm flex items-center">
+                      {mover.symbol}
+                      <div
+                        className={`text-xs flex px-2 items-center space-x-1 ${mover.isPositive ? 'text-green-400' : 'text-red-400'
+                          }`}
+                      >
+                        {mover.isPositive ? (
+                          <TrendingUp className="w-3 h-3" />
+                        ) : (
+                          <TrendingDown className="w-3 h-3" />
+                        )}
                         <span className="text-xs">{mover.change}</span>
-                    </div>
-                  </h3>
+                      </div>
+                    </h3>
                   </div>
                 </div>
               </div>
-              
+
               <div className="flex items-center">
                 <div>
                   <div className="text-sm font-medium text-white px-5">{mover.price}</div>
@@ -135,6 +152,6 @@ export function TopMovers() {
           ))}
         </div>
       </div>
-    </div>
+    </div >
   );
 }

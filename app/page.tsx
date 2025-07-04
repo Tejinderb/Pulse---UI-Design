@@ -74,15 +74,20 @@ export default function HomePage() {
       <AnimatedBackground />
 
       <div className="flex relative z-10">
-        <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} />
-        
+        <Sidebar
+          activeTab={activeTab}
+          setActiveTab={handleTabChange}
+          isMobileOpen={isSidebarMobileOpen}
+          onMobileClose={() => setIsSidebarMobileOpen(false)}
+        />
+
         <div className="flex-1 flex flex-col h-full">
-          <TopBar />
-          
-          <main className="flex-1 p-4 lg:p-6 overflow-hidden">
-            <div className="max-w-7xl mx-auto">
-              <div className="mb-0 overflow-hidden">
-                <TopMovers/>
+          <TopBar onToggleMobileSidebar={() => setIsSidebarMobileOpen((prev) => !prev)} />
+
+          <main className="flex-1 max-w-full p-4 lg:p-6 overflow-hidden">
+            <div className="w-full mx-auto">
+              <div className="mb-0 pt-14 lg:pt-0 overflow-hidden">
+                <TopMovers />
                 {/* <h1 className="text-2xl lg:text-3xl font-bold text-white mb-2">
                   Market Intelligence Dashboard
                 </h1>

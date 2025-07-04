@@ -78,10 +78,20 @@ const config: Config = {
             height: '0',
           },
         },
+        scrollLeft: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' }, // kanan → kiri
+        },
+        scrollRight: {
+          '0%': { transform: 'translateX(-50%)' },
+          '100%': { transform: 'translateX(0)' }, // kiri → kanan
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        'scroll-left': 'scrollLeft 30s linear infinite',
+        'scroll-right': 'scrollRight 30s linear infinite',
       },
     },
   },
