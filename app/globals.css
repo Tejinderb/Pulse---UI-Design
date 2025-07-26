@@ -95,7 +95,7 @@
   pointer-events: none;
   z-index: 0;
   overflow: hidden;
-  background: radial-gradient(ellipse at top, rgba(30, 30, 30, 0.8) 0%, rgba(0, 0, 0, 1) 70%);
+  background: radial-gradient(ellipse at top, rgba(44, 44, 44, 0.8) 0%, rgb(0, 0, 0) 70%);
 }
 
 .animated-bg::before {
@@ -105,10 +105,10 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: 
+  /* background: 
     radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
     radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.08) 0%, transparent 50%),
-    radial-gradient(circle at 40% 40%, rgba(120, 219, 226, 0.06) 0%, transparent 50%);
+    radial-gradient(circle at 40% 40%, rgba(120, 219, 226, 0.06) 0%, transparent 50%); */
   animation: gradientShift 20s ease-in-out infinite;
 }
 
@@ -131,29 +131,29 @@
 }
 
 .dot:nth-child(odd) {
-  width: 1px;
-  height: 1px;
+  width: 5px;
+  height: 5px;
   background: rgba(255, 255, 255, 0.15);
   animation-duration: 30s;
 }
 
 .dot:nth-child(even) {
-  width: 2px;
-  height: 2px;
-  background: rgba(255, 255, 255, 0.08);
+  width: 5px;
+  height: 5px;
+  background: rgba(170, 170, 170, 0.08);
   animation-duration: 35s;
 }
 
 .dot:nth-child(3n) {
-  width: 1.5px;
-  height: 1.5px;
+  width: 3.5px;
+  height: 3.5px;
   background: rgba(156, 163, 175, 0.1);
   animation-duration: 40s;
 }
 
 .dot:nth-child(4n) {
-  width: 0.5px;
-  height: 0.5px;
+  width: 3.5px;
+  height: 3.5px;
   background: rgba(255, 255, 255, 0.2);
   animation-duration: 45s;
 }
