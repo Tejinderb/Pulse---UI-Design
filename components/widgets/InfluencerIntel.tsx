@@ -8,200 +8,226 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 
 const influencers = [
-  {
-    id: 1,
-    name: 'Elon Musk',
-    reputation: 5.0,
-    sentiment: 9.5,
-    impact: 'Very High',
-    assets: ['BTC', 'DOGE', 'TSLA'],
-    followers: '150M',
-    avatar: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Elon_Musk_Colorado_2022_%28cropped2%29.jpg/640px-Elon_Musk_Colorado_2022_%28cropped2%29.jpg',
-    statements: [
-      {
-        id: 1,
-        date: '2024-01-15',
-        statement: 'Bitcoin is the future of money. Tesla will continue to hold and accept BTC for payments.',
-        impact: 'Very High',
-        sentiment: 'Bullish',
-        assets: ['BTC', 'TSLA'],
-        source: 'Twitter',
-        marketReaction: '+12.5%',
-        engagement: '2.1M'
-      },
-      {
-        id: 2,
-        date: '2024-01-10',
-        statement: 'Dogecoin to the moon! Much wow, such currency. The people\'s crypto.',
-        impact: 'High',
-        sentiment: 'Bullish',
-        assets: ['DOGE'],
-        source: 'Twitter',
-        marketReaction: '+8.3%',
-        engagement: '1.8M'
-      },
-      {
-        id: 3,
-        date: '2024-01-05',
-        statement: 'AI will revolutionize everything. Investing heavily in neural networks and autonomous systems.',
-        impact: 'Medium',
-        sentiment: 'Bullish',
-        assets: ['TSLA', 'NVDA'],
-        source: 'Interview',
-        marketReaction: '+5.2%',
-        engagement: '950K'
-      }
-    ]
-  },
-  {
-    id: 2,
-    name: 'Donald Trump',
-    reputation: 4.8,
-    sentiment: 8.8,
-    impact: 'Very High',
-    assets: ['TRUMP', 'DWAC', 'SPY'],
-    followers: '87M',
-    avatar: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Donald_Trump_official_portrait.jpg/640px-Donald_Trump_official_portrait.jpg',
-    statements: [
-      {
-        id: 4,
-        date: '2024-01-14',
-        statement: 'America First policies will boost our markets tremendously. Greatest economy ever!',
-        impact: 'Very High',
-        sentiment: 'Bullish',
-        assets: ['SPY', 'DWAC'],
-        source: 'Rally',
-        marketReaction: '+15.2%',
-        engagement: '3.2M'
-      },
-      {
-        id: 5,
-        date: '2024-01-08',
-        statement: 'Truth Social is the future of social media platforms. Big Tech monopoly ends now.',
-        impact: 'High',
-        sentiment: 'Bullish',
-        assets: ['DWAC'],
-        source: 'Truth Social',
-        marketReaction: '+22.1%',
-        engagement: '2.7M'
-      }
-    ]
-  },
-  {
-    id: 3,
-    name: 'Michael Saylor',
-    reputation: 4.9,
-    sentiment: 9.1,
-    impact: 'High',
-    assets: ['BTC', 'ETH', 'SOL'],
-    followers: '3.1M',
-    avatar: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Michael_Saylor_by_Gage_Skidmore.jpg/640px-Michael_Saylor_by_Gage_Skidmore.jpg',
-    statements: [
-      {
-        id: 6,
-        date: '2024-01-12',
-        statement: 'Bitcoin is digital gold. MicroStrategy will never sell our Bitcoin treasury.',
-        impact: 'Very High',
-        sentiment: 'Bullish',
-        assets: ['BTC'],
-        source: 'Conference',
-        marketReaction: '+18.7%',
-        engagement: '1.2M'
-      },
-      {
-        id: 7,
-        date: '2024-01-07',
-        statement: 'Ethereum smart contracts are revolutionary for enterprise blockchain adoption.',
-        impact: 'Medium',
-        sentiment: 'Bullish',
-        assets: ['ETH'],
-        source: 'Podcast',
-        marketReaction: '+6.4%',
-        engagement: '780K'
-      }
-    ]
-  },
-  {
-    id: 4,
-    name: 'Cathie Wood',
-    reputation: 4.7,
-    sentiment: 7.5,
-    impact: 'High',
-    assets: ['AAPL', 'NVDA', 'TSLA'],
-    followers: '1.8M',
-    avatar: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Cathie_Wood_ARK_Invest_Photo.jpg/640px-Cathie_Wood_ARK_Invest_Photo.jpg',
-    statements: [
-      {
-        id: 8,
-        date: '2024-01-11',
-        statement: 'Innovation stocks are undervalued. This is a generational buying opportunity.',
-        impact: 'High',
-        sentiment: 'Bullish',
-        assets: ['TSLA', 'NVDA'],
-        source: 'CNBC',
-        marketReaction: '+9.8%',
-        engagement: '650K'
-      },
-      {
-        id: 9,
-        date: '2024-01-06',
-        statement: 'Apple\'s AI integration will drive the next major growth cycle in tech.',
-        impact: 'Medium',
-        sentiment: 'Bullish',
-        assets: ['AAPL'],
-        source: 'Report',
-        marketReaction: '+4.1%',
-        engagement: '420K'
-      }
-    ]
-  },
-  {
-    id: 5,
-    name: 'Charles Hoskinson',
-    reputation: 4.7,
-    sentiment: 8.3,
-    impact: 'High',
-    assets: ['ADA', 'DOT', 'LINK'],
-    followers: '2.4M',
-    avatar: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Charles_Hoskinson_Profile_Colour_Hi-Res-3.jpg/640px-Charles_Hoskinson_Profile_Colour_Hi-Res-3.jpg',
-    statements: [
-      {
-        id: 10,
-        date: '2024-01-13',
-        statement: 'Cardano\'s peer-reviewed approach will win in the long term. Science-based blockchain.',
-        impact: 'High',
-        sentiment: 'Bullish',
-        assets: ['ADA'],
-        source: 'YouTube',
-        marketReaction: '+11.3%',
-        engagement: '890K'
-      }
-    ]
-  },
-  {
-    id: 6,
-    name: 'Raoul Pal',
-    reputation: 4.5,
-    sentiment: 6.4,
-    impact: 'Medium',
-    assets: ['SPY', 'QQQ', 'VTI'],
-    followers: '1.2M',
-    avatar: 'https://goodmoneyguide.com/wp-content/uploads/2019/09/Raoul-Pal-Real-Vision.jpeg',
-    statements: [
-      {
-        id: 12,
-        date: '2024-01-04',
-        statement: 'Macro conditions suggest a potential market correction ahead. Be cautious.',
-        impact: 'High',
-        sentiment: 'Bearish',
-        assets: ['SPY', 'QQQ'],
-        source: 'Newsletter',
-        marketReaction: '-7.2%',
-        engagement: '560K'
-      }
-    ]
-  },
+    {
+      id: 1,
+      name: 'Elon Musk',
+      reputation: 5.0,
+      sentiment: 9.5,
+      impact: 'Very High',
+      assets: ['BTC', 'DOGE', 'TSLA'],
+      followers: '150M',
+      avatar: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Elon_Musk_Colorado_2022_%28cropped2%29.jpg/640px-Elon_Musk_Colorado_2022_%28cropped2%29.jpg',
+      statements: [
+        {
+          id: 1,
+          date: '2024-01-15',
+          statement: 'Bitcoin is the future of money. Tesla will continue to hold and accept BTC for payments.',
+          impact: 'Very High',
+          sentiment: 'Bullish',
+          assets: ['BTC', 'TSLA'],
+          source: 'Twitter',
+          marketReaction: '+12.5%',
+          engagement: '2.1M'
+        },
+        {
+          id: 2,
+          date: '2024-01-10',
+          statement: 'Dogecoin to the moon! Much wow, such currency. The people\'s crypto.',
+          impact: 'High',
+          sentiment: 'Bullish',
+          assets: ['DOGE'],
+          source: 'Twitter',
+          marketReaction: '+8.3%',
+          engagement: '1.8M'
+        }
+      ]
+    },
+    {
+      id: 2,
+      name: 'Michael Saylor',
+      reputation: 4.9,
+      sentiment: 9.1,
+      impact: 'High',
+      assets: ['BTC', 'ETH', 'SOL'],
+      followers: '3.1M',
+      avatar: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Michael_Saylor_by_Gage_Skidmore.jpg/640px-Michael_Saylor_by_Gage_Skidmore.jpg',
+      statements: [
+        {
+          id: 3,
+          date: '2024-01-12',
+          statement: 'Bitcoin is digital gold. MicroStrategy will never sell our Bitcoin treasury.',
+          impact: 'Very High',
+          sentiment: 'Bullish',
+          assets: ['BTC'],
+          source: 'Conference',
+          marketReaction: '+18.7%',
+          engagement: '1.2M'
+        }
+      ]
+    },
+    {
+      id: 3,
+      name: 'Cathie Wood',
+      reputation: 4.7,
+      sentiment: 7.5,
+      impact: 'High',
+      assets: ['AAPL', 'NVDA', 'TSLA'],
+      followers: '1.8M',
+      avatar: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Cathie_Wood_ARK_Invest_Photo.jpg/640px-Cathie_Wood_ARK_Invest_Photo.jpg',
+      statements: [
+        {
+          id: 4,
+          date: '2024-01-11',
+          statement: 'Innovation stocks are undervalued. This is a generational buying opportunity.',
+          impact: 'High',
+          sentiment: 'Bullish',
+          assets: ['TSLA', 'NVDA'],
+          source: 'CNBC',
+          marketReaction: '+9.8%',
+          engagement: '650K'
+        }
+      ]
+    },
+    {
+      id: 4,
+      name: 'Raoul Pal',
+      reputation: 4.5,
+      sentiment: 6.4,
+      impact: 'Medium',
+      assets: ['SPY', 'QQQ', 'VTI'],
+      followers: '1.2M',
+      avatar: 'https://goodmoneyguide.com/wp-content/uploads/2019/09/Raoul-Pal-Real-Vision.jpeg',
+      statements: [
+        {
+          id: 5,
+          date: '2024-01-04',
+          statement: 'Macro conditions suggest a potential market correction ahead. Be cautious.',
+          impact: 'High',
+          sentiment: 'Bearish',
+          assets: ['SPY', 'QQQ'],
+          source: 'Newsletter',
+          marketReaction: '-7.2%',
+          engagement: '560K'
+        }
+      ]
+    },
+    {
+      id: 5,
+      name: 'Brian Armstrong',
+      reputation: 4.8,
+      sentiment: 8.0,
+      impact: 'High',
+      assets: ['BTC', 'ETH', 'COIN'],
+      followers: '1.1M',
+      avatar: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Brian_Armstrong_-_TechCrunch_Disrupt_2018_01.jpg/640px-Brian_Armstrong_-_TechCrunch_Disrupt_2018_01.jpg',
+      statements: [
+        {
+          id: 6,
+          date: '2024-01-09',
+          statement: 'Crypto regulation clarity is coming. We’re ready for the next wave of adoption.',
+          impact: 'High',
+          sentiment: 'Bullish',
+          assets: ['BTC', 'COIN'],
+          source: 'X',
+          marketReaction: '+7.4%',
+          engagement: '420K'
+        }
+      ]
+    },
+    {
+      id: 6,
+      name: 'Changpeng Zhao',
+      reputation: 4.9,
+      sentiment: 8.6,
+      impact: 'Very High',
+      assets: ['BNB', 'BTC'],
+      followers: '9.2M',
+      avatar: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Changpeng_Zhao_in_2022.jpg/640px-Changpeng_Zhao_in_2022.jpg',
+      statements: [
+        {
+          id: 7,
+          date: '2024-01-08',
+          statement: 'Not your keys, not your crypto. Stay safe, stay decentralized.',
+          impact: 'High',
+          sentiment: 'Bullish',
+          assets: ['BNB', 'BTC'],
+          source: 'Twitter',
+          marketReaction: '+6.9%',
+          engagement: '1.1M'
+        }
+      ]
+    },
+    {
+      id: 7,
+      name: 'Vitalik Buterin',
+      reputation: 4.9,
+      sentiment: 8.9,
+      impact: 'High',
+      assets: ['ETH', 'OP', 'ZK'],
+      followers: '4.6M',
+      avatar: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/VitalikButerinProfile.jpg/640px-VitalikButerinProfile.jpg',
+      statements: [
+        {
+          id: 8,
+          date: '2024-01-10',
+          statement: 'Ethereum Layer 2 scaling is the future. Rollups are here to stay.',
+          impact: 'High',
+          sentiment: 'Bullish',
+          assets: ['ETH', 'OP'],
+          source: 'Blog',
+          marketReaction: '+10.1%',
+          engagement: '790K'
+        }
+      ]
+    },
+    {
+      id: 8,
+      name: 'Anthony Pompliano',
+      reputation: 4.6,
+      sentiment: 7.8,
+      impact: 'Medium',
+      assets: ['BTC', 'ETH'],
+      followers: '1.7M',
+      avatar: 'https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iGV7Z2PjmTr0/v0/-1x-1.webp',
+      statements: [
+        {
+          id: 9,
+          date: '2024-01-07',
+          statement: 'Bitcoin fixes the money. Every institution will adopt it sooner or later.',
+          impact: 'High',
+          sentiment: 'Bullish',
+          assets: ['BTC'],
+          source: 'Podcast',
+          marketReaction: '+9.2%',
+          engagement: '510K'
+        }
+      ]
+    },
+    {
+      id: 9,
+      name: 'Chamath Palihapitiya',
+      reputation: 4.7,
+      sentiment: 7.2,
+      impact: 'Medium',
+      assets: ['SPACs', 'TSLA', 'BTC'],
+      followers: '1.6M',
+      avatar: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Chamath_Palihapitiya_2016_Dialog_%28cropped%29.jpg/640px-Chamath_Palihapitiya_2016_Dialog_%28cropped%29.jpg',
+      statements: [
+        {
+          id: 10,
+          date: '2024-01-06',
+          statement: 'Tech-led disruption will define the next decade. Bitcoin and decentralized finance will thrive.',
+          impact: 'Medium',
+          sentiment: 'Bullish',
+          assets: ['BTC', 'TSLA'],
+          source: 'Interview',
+          marketReaction: '+6.8%',
+          engagement: '470K'
+        }
+      ]
+    }
 ];
+
 
 // Duplicate the array for seamless looping
 const duplicatedInfluencers = [...influencers, ...influencers];
@@ -277,8 +303,8 @@ export function InfluencerIntel() {
 
       {!selectedInfluencer ? (
         // Enhanced Influencer Cards View with Clean Avatars
-        <div className="auto-scroll-container">
-          <div className="auto-scroll-content">
+        <div className="overflow-x-auto whitespace-nowrap auto-scroll-container">
+          <div className="flex w-max auto-scroll-content">
             {duplicatedInfluencers.map((influencer, index) => (
               <div
                 key={`${influencer.id}-${index}`}
